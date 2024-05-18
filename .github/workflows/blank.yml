@@ -7,7 +7,6 @@ on:
 env:
   GCP_PROJECT_ID: upheld-beach-417514
   TF_STATE_BUCKET_NAME: dmj8682
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
