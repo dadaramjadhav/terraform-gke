@@ -27,27 +27,3 @@ jobs:
         service_account: 'terraform@upheld-beach-417514.iam.gserviceaccount.com'
     - name: 'Set up Cloud SDK'
       uses: 'google-github-actions/setup-gcloud@v1'
-    - name: docker auth
-      run: gcloud auth configure-docker
-    - run: gcloud auth list
-    # - name: Build and push docker image
-    #   run: |
-    #     docker build -t us.gcr.io/upheld-beach-417514/nodeappimage:$IMAGE_TAG .
-    #     docker push us.gcr.io/upheld-beach-417514/nodeappimage:$IMAGE_TAG
-    #   working-directory: ./nodeapp
-    - name: Setup Terraform
-      uses: hashicorp/setup-terraform@v2
-    - name: Terraform init
-      run: terraform init -backend-config="bucket=dmj8682" -backend-config="prefix=test"
-      working-directory: ./terraform
-    - name: Terraform Plan
-      run: |
-        terraform plan \
-        -var="region=us-central1" \
-        -var="project_id=upheld-beach-417514" \
-        -var="container_image=dadaramjadhav/de:latest" \
-        -out=PLAN
-      working-directory: ./terraform
-    - name: Terraform Apply
-      run: terraform apply PLAN
-      working-directory: ./terraform
