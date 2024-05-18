@@ -24,7 +24,7 @@ jobs:
       uses: 'google-github-actions/auth@v1' 
       with:
         token_format: 'access_token'
-        workload_identity_provider: 'projects/996187059188/locations/global/workloadIdentityPools/k8s-pool/providers/k8s-provider'
+        workload_identity_provider: 'projects/996187059188/locations/global/workloadIdentityPools/k8s-pool1/providers/k8s-provider'
         service_account: 'terraform@upheld-beach-417514.iam.gserviceaccount.com'
     - name: 'Set up Cloud SDK'
       uses: 'google-github-actions/setup-gcloud@v1'
